@@ -29,10 +29,12 @@ def get_link():
                 info = ydl.extract_info(url, download=False)
                 return jsonify({"download_url": info.get('thumbnail')})
 
+        # YAHAN CHANGE KIYA HAI: YouTube ki bot verification bypass karne ke liye options
         ydl_opts = {
             'outtmpl': f'{DOWNLOAD_FOLDER}/%(id)s.%(ext)s',
             'quiet': True,
-            'noplaylist': True
+            'noplaylist': True,
+            'extractor_args': {'youtube': {'player_client': ['android', 'web']}}, # YouTube ko lagega app se request hai
         }
 
         if req_type == 'mp3':
@@ -56,7 +58,7 @@ def get_link():
             })
             
     except Exception as e:
-        print(f"ERROR: {str(e)}") # Termux mein error print karega
+        print(f"ERROR: {str(e)}")
         return jsonify({"error": str(e)})
 
 @app.route('/download-file/<filename>')
@@ -65,3 +67,4 @@ def download_file(filename):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
+
