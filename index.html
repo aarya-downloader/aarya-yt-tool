@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AARYA - Ultimate YT Downloader</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars-background"></div>
+    
+    <div class="container">
+        <h1 class="chrome-title">AARYA DOWNLOADER</h1>
+        <p class="subtitle">Fast. Secure. No Malware.</p>
+        
+        <div class="input-box">
+            <input type="text" id="video-url" placeholder="Paste YouTube Link Here...">
+        </div>
+        
+        <div class="button-group">
+            <button class="dl-btn" id="btn-mp4" onclick="startDownload('mp4')">MP4 VIDEO</button>
+            <button class="dl-btn" id="btn-mp3" onclick="startDownload('mp3')">MP3 AUDIO</button>
+            <button class="dl-btn" id="btn-thumb" onclick="startDownload('thumb')">THUMBNAIL</button>
+        </div>
+
+        <p id="status-text"></p>
+
+        <div class="support-section">
+            <button class="support-btn">⚡ Buy Me an Energy Drink</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
