@@ -29,12 +29,12 @@ def get_link():
                 info = ydl.extract_info(url, download=False)
                 return jsonify({"download_url": info.get('thumbnail')})
 
-        # YT-DLP Options with MWEB client to bypass bot check
+        # Android & Mweb client bypass for Cloud Server
         ydl_opts = {
             'outtmpl': f'{DOWNLOAD_FOLDER}/%(id)s.%(ext)s',
             'quiet': True,
             'noplaylist': True,
-            'extractor_args': {'youtube': {'player_client': ['mweb', 'web']}},
+            'extractor_args': {'youtube': {'player_client': ['android', 'mweb']}},
         }
 
         if req_type == 'mp3':
